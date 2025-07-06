@@ -316,7 +316,7 @@ function Click(object)
     if ingredients[object] then
         local Pos1 = ingredients[object].X + width
         local Pos2 = ingredients[object].Y + (height * 2)
-        local wait_time = 0.15 + math.random() * 0.4
+        local wait_time = 0.3 + (math.random() * 0.4)
         if Pos1 and Pos2 then
             print("Clicking "..object.." at "..tostring(Pos1).." "..tostring(Pos2)..". Wait time: "..tostring(wait_time))
             task.wait(wait_time)
