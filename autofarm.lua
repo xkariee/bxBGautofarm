@@ -33,7 +33,7 @@ local player = Players.LocalPlayer
 local playerGui = player:WaitForChild("PlayerGui")
 
 local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "MyEpicGUI"
+screenGui.Name = "karieeAutofarm"
 screenGui.ResetOnSpawn = false
 screenGui.Parent = playerGui
 
@@ -88,9 +88,6 @@ closeButton.Font = Enum.Font.GothamBold
 closeButton.TextSize = 16
 closeButton.Parent = frame
 roundify(closeButton, 8)
-
-
-local autoKickEnabled = false
 
 local autoKickCheck = Instance.new("TextButton")
 autoKickCheck.Size = UDim2.new(0, 25, 0, 25)
@@ -188,7 +185,7 @@ end
 
 function LoadResources()
     if #ingredients <= 0 then
-        Notify('Trwa wczytywanie zasobow...')
+        Notify('Load resources...')
         repeat
             wait(1)
             local success, errorOrResult = pcall(function()
@@ -204,7 +201,7 @@ function LoadResources()
         height = ingredients_path["Tomato [Chopped]"].Button.AbsoluteSize.Y / 2
         Load_items()
         time_started = os.time()
-        Notify('Wczytano, skrypt moze dzialac juz samemu :)')
+        Notify('Success, script will now work for you :)')
     end
 
 end
@@ -257,7 +254,7 @@ function StartLoop()
 
             if autokick then
                 if os.time() - time_started > (autofarm_time * 3600) then
-                    return game.Players.LocalPlayer:Kick("Zostałeś wyrzucony autmatycznie, z powodu na maksymalna ilosc dopuszczalana na autofarmie z powodu na podejrzenia ROBLOX odnosnie makr przepracowałes: "..tostring(autofarm_time).." hours! Hope you enjoyed!")
+                    return game.Players.LocalPlayer:Kick("The autofarm automatically ended after "..tostring(autofarm_time).." hours! Hope you enjoyed!")
                 end
             end
         else
